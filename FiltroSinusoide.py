@@ -8,7 +8,7 @@ b2, a2 = signal.iirnotch(20.02892892892893,70.63163163163163, 240*2)
 
 def filtradoIIR(frame):
     res1 = signal.lfilter(b1,a1,frame.flatten()).reshape(480, 848)
-    return signal.lfilter(b2,a2,res1.flatten('F')).reshape(848,480).T.astype('uint8')
+    return signal.lfilter(b2,a2,res1.flatten('F')).reshape(848,480).T
 
 
 # Filtro FIR
@@ -17,7 +17,7 @@ FIRCoefs = np.loadtxt("Pruebas/FIRCoefs.txt").astype('float32')
 def filtradoFIR(frame):
     for i in range(480):
         frame[i,:] = signal.correlate(frame[i,:],FIRCoefs,mode="same")
-    return frame.flatten('F').reshape(848,480).T.astype('uint8')
+    return frame.flatten('F').reshape(848,480).T
 
 # Filtro FFT
 def filtradoFFT(img):
