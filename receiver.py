@@ -14,5 +14,5 @@ while True:
     message = socket.recv()
     frame = decode(message)
     cv.imshow("Torres del paine", frame)
-    cv.waitKey(10)
+    cv.waitKey(1)
     socket.send(b"ready")
