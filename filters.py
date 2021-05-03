@@ -29,7 +29,7 @@ def filtradoIIR(frame):
 
 
 # Filtro FIR
-FIRCoefs = np.loadtxt("Pruebas/FIRCoefs.txt").astype('float32')
+FIRCoefs = np.loadtxt("FIRCoefs.txt").astype('float32')
 
 def filtradoFIR(frame):
     for i in range(480):
